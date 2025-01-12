@@ -1,0 +1,44 @@
+Gradient Descent: iteratively adjusts the slope (m) and intercept (b) to minimize MSE
+
+Formula:
+    m = m - α * ∂MSE / ∂m
+    b = b - α * ∂MSE / ∂b
+
+    α: Learning rate (step size for updates)
+    ∂MSE / ∂m: Partial derivative of MSE with respect to m
+    ∂MSE / ∂b: Partial derivative of MSE with respect to b
+
+
+Derivative with respect to m:
+                       n
+    ∂MSE / ∂m = -2/n * ∑ xi * (y_true,i - y_pred,i)
+                      i = 1
+
+    xi: Independent variable (time studied)
+    (y_pred,i - y_true,i): Error between actual and predicted values
+
+
+x = [1,2,3]
+y_true = [2,4,6]
+Initial m = 0, b = 0
+Learning rate: α = 0.01
+
+Compute y_pred:
+    y_pred,i = mxi + b = (0)xi + 0 = [0,0,0]
+
+Compute Gradients:
+                     n = 3
+    - ∂MSE / ∂m = -2/3 ∑ xi * (y_true,i - y_pred,i)
+                      i = 1
+
+           = -2/3 (1 * (2 - 0) + 2 * (4 - 0) + 3 * (6 - 0)) = -2/3 * 28 = -18.67
+
+                     n = 3
+    - ∂MSE / ∂b = -2/3 ∑ xi * (y_true,i - y_pred,i)
+                      i = 1
+          = -2/3 ((2 - 0) + (4 - 0) + (6 - 0)) = -2/3 * 12 = -8
+
+Update m and b
+    m = m - α * ∂MSE / ∂m =  - 0.01 * (-18.67) = 0.1867
+
+    b = b - a * ∂MSE / ∂b = 0 - 0.01 * (-8) = .08

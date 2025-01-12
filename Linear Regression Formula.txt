@@ -1,0 +1,52 @@
+Linear Regression: Method of making accurate predictions by finding the best fit line or model for the data
+
+
+
+Slope Formula: y = mx + b
+    m = ∑(x−x̂)(y-ŷ) / ∑(x−x̂)^2
+
+    Numerator: ∑(x−x̂)(y-ŷ)
+        Calculates the covariance between x and y
+        - (x−x̂): Difference between each value x and the mean of x which is x̂
+        - (y-ŷ): Difference between each value y and the mean of x which is ŷ
+
+
+    Denominator: ∑(x−x̂)^2
+        Calculates the variance of x aka how spread out the x values are from the mean
+        - (x-x̂)^2: Square the differences between the x, and it's mean for each data input and sums them
+
+    Slope: m
+        The ratio of the covariance to the variance gives the slope of the line.
+        A higher covariance relative to the variance means y increases more steeply with x
+
+
+Intercept: b = ŷ - mx̂
+    x̂: Mean of all x values
+    ŷ: Mean of all y values
+    mx̂: Predicted y value at the mean of x
+    b: Intercept of the value of y when x = 0
+
+
+How this works:
+m = ∑(x−x̂)(y-ŷ) / ∑(x−x̂)^2
+Data:
+    x = [1, 2, 3]
+    y = [2, 4, 5]
+
+Calculate the means:
+x̂ = (1 + 2 + 3)/ 3 => 2
+ŷ = (2 + 4 + 5)/ 3 => 3.67
+
+Calculate Covariance:
+    ∑(x−x̂)(y-ŷ) = (1 - 2)(1 - 3.67) + (2 - 2)(4 - 3.67) + (3 - 2)(5 - 3.67) = -.33
+
+Calculate Variance:
+    ∑(x−x̂)^2 = (1 - 2)^2 + (2 - 2)^2 + (3 - 2)^2 = 2
+
+Calculate Slope:
+    m = Covariance / Variance
+    m = -.33 / 2 = -.165
+
+Calculate Slope:
+    b = ŷ - mx̂
+    b = 3.67 - (-.165)(2) = 4

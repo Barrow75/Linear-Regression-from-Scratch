@@ -1,0 +1,46 @@
+Mean Square Error: measures the average squred difference between predicted and actual value and evaluates
+how well a model is performing
+
+Formula:       n
+    MSE= 1/n * ∑ (y_pred,i - y_true,i)^2
+              i = 1
+
+    n: Total number of data points
+    y_pred, i: Predicted value for the i-th data point
+    y_true, i: Actual (true) value for the i-th data point
+
+Example:
+Given Data:
+    y_true:             y_pred:
+    23                  25
+    30                  28
+    54                  50
+    62                  65
+
+
+Calculate (y_pred,i - y_true,i):
+
+    i   y_true,i    y_pred,i    Difference
+    1   23          25          25 - 23 = 2
+    2   30          28          28 - 30 = -2
+    3   54          50          50 - 54 = -4
+    4   62          65          65 - 62 = 3
+
+Square the Difference (y_pred,i - y_true,i)^2
+    i   Difference   Squared Difference
+    1   2            (2)^4 = 4
+    2   -2           (-2)^2 = 4
+    3   -4           (-4)^2 = 16
+    4   3            (3)^2 = 9
+
+Sum the Squared Differences:
+    Sum = 4 + 4 + 16 + 9 = 33
+
+Divide by the Number if Data Points (n = 4)
+    MSE = Sum of Squared Differences / n
+                33 / 4 = 8.25
+
+With Code:
+def MeanSquareError(y_true, y_pred):
+    mse = np.mean((y_true - y_pred)**2)
+    return mse
